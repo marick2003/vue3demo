@@ -1,0 +1,62 @@
+
+//http://zerosixthree.se/8-sass-mixins-you-must-have-in-your-toolbox/
+
+$base-colour:   yellow
+
+$font-stack-serif: Georgia, Times, serif
+$font-stack-sans-serif: Helvetica, Arial, sans-serif
+
+$brand-color: pink
+$font-size-base: 18px
+
+// keyframes mixin
+=keyframes($name)
+  @-webkit-keyframes #{$name}
+    @content
+  @-moz-keyframes #{$name}
+    @content
+  @-ms-keyframes #{$name}
+    @content
+  @keyframes #{$name}
+    @content
+
+
+
+// use of keyframes mixin
+@mixin animation($str)
+  -webkit-animation: #{$str}
+  -moz-animation: #{$str}
+  -ms-animation: #{$str}
+  -o-animation: #{$str}
+  animation: #{$str}    
+
+
+// rem 字體大小換算
+@function calculateRem($size)
+  $remSize: $size / 16px
+  @return $remSize * 1rem
+
+@mixin font-size($size)
+  font-size: $size
+  font-size: calculateRem($size)
+
+
+@mixin bp-large
+  @media only screen and (max-width: 60em)
+    @content
+  
+
+@mixin bp-medium
+  @media only screen and (max-width: 40em)
+    @content
+
+@mixin bp-small
+  @media only screen and (max-width: 30em) 
+    @content;
+  
+@mixin transition($args...)
+  -webkit-transition: $args
+  -moz-transition: $args
+  -ms-transition: $args
+  -o-transition: $args
+  transition: $args
