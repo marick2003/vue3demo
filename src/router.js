@@ -2,6 +2,7 @@ import Vue from 'vue'
 import Router from 'vue-router'
 import Home from './views/Home.vue'
 import sassDemo from './views/sassDemo.vue'
+import p5 from './views/P5.vue'
 
 Vue.use(Router)
 
@@ -25,6 +26,10 @@ export default new Router({
       name: 'sassdemo',
       component: sassDemo
     },
-
+    {
+      path: '/p5',
+      name: 'p5',
+      component: p5
+    },
   ]
 })
